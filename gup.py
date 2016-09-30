@@ -1,6 +1,6 @@
 #Bayle SMith-Salzberg
 #SoftDev1 pd8
-#HW04 -- Into a Zone of Danger
+#HW04 -- Big, Heavy, Wood
 #2016-09-29
 
 from flask import Flask, render_template, request
@@ -23,9 +23,9 @@ def author():
     print app
     print "this is username"
     if request.form['username'] == "bayle" and request.form['password'] == "bss":
-        return render_template("success.html")#make this a template pls
+        return render_template("success.html")
     else:
-        return render_template("failure.html")#make this a template pls
+        return render_template("failure.html")
 
 if __name__ == "__main__":
     app.debug = True
