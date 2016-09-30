@@ -1,3 +1,8 @@
+#Bayle SMith-Salzberg
+#SoftDev1 pd8
+#HW04 -- Into a Zone of Danger
+#2016-09-29
+
 from flask import Flask, render_template, request
 
 app = Flask(__name__)
