@@ -22,9 +22,11 @@ def author():
     print "this the apperrino"
     print app
     print "this is username"
-    if request.form['username'] == "bayle" and request.form['password'] == "bss":
+    if request.form['username'] == #username in csv
+        "bayle" and request.form['password'] ==#password in csv
+        "bss":
         return render_template("success.html")
-    else:
+    else if:
         return render_template("failure.html")
 
 if __name__ == "__main__":
