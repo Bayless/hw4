@@ -17,17 +17,17 @@ def makeCsv():
             userpwd[csv[0]] = csv[1]
 
 def authenticate(user,password):
-    theVerdict = "a failure."
-    theReason=""
+    theVerdict = False
+    #theReason=""
     passHash = sha1(password).hexdigest()
     if (user in usrpwd.keys()):
         if (passHash == usrpwd[user]):
-            theVerdict = "a success!"
-        else:
-            theReason = "Incorrect password entered."
+            theVerdict = True
+     #   else:
+      #      theReason = "Incorrect password entered."
     else:
-        theReason = "Username does not exist."
-    return [theVerdict,theReason]
+        theReason = False
+    return theVerdict
 
 def register(user,password):
     theError = ""
