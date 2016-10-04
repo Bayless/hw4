@@ -4,7 +4,7 @@ from hashlib import sha1
 usrpwd = {}
 
 def makeCsv():
-    csv = open('data/userPass.csv').read().strip("\n")
+    csv = open('data/userCsv.csv').read().strip("\n")
         if (len(csv)==0):
                 return
         if "\n" in csv: # more than one entry
