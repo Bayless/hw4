@@ -1,24 +1,24 @@
 <!DOCTYPE html>
 <html>
-
-  <head>
-    <title> Login Page </title>
-  </head>
-
-  <body>
-    <form action="/auth">
-      Login:<br>
-      Username:<input type="text" name="username">
-      <input type="submit" value="Submit">
-      Password:<input type="text" name="password">
-      <br>
-      <input type="submit" value="Submit">
-      <br><br>
-      Register:<br>
-      Username:<input type="text" name="usr">
-      <input type="submit" value="Submit">
-      Password:<input type="text" name="pwd"><br>
-      <input type="submit" value="Submit">
-    </form>
-  </body>
+	<head>
+		<title>Do Now</title>
+	</head>
+	<body>
+	  <h2>Welcome back! {{errorMsg}}</h2>
+	  <form action="/authenticate/" method="POST">
+	    User:<input type="text" name="username">
+	    <br>
+	    Password:<input type="password" name="password">
+	    <br>
+	    <input type="submit" value="Submit">
+	  </form>
+	  <h4>Don't have an account? Make one!</h4>
+	  <form action="/register/" method="POST">
+	    User:<input type="text" name="usr">
+	    <br>
+	    Password:<input type="password" name="pwd">
+	    <br>
+	    <input type="submit" value="Register!">
+	  </form>
+	</body>
 </html>

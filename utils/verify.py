@@ -5,43 +5,41 @@ usrpwd = {}
 
 def makeCsv():
     csv = open('data/userCsv.csv').read().strip("\n")
-        if (len(csv)==0):
-                return
-        if "\n" in csv: # more than one entry
-            csv = csv.split("\n")
-                for row in csv: 
-                    row = row.split(",")
-                    userInfo[row[0]] = row[1]
-        else:
-            csv = csv.split(",")
-            userpwd[csv[0]] = csv[1]
+    if (len(csv)==0):
+            return
+    if "\n" in csv: # more than one entry
+        csv = csv.split("\n")
+        for row in csv:
+            row = row.split(",")
+            usrpwd[row[0]] = row[1]
+    else:
+        csv = csv.split(",")
+        usrpwd[csv[0]] = csv[1]
 
 def authenticate(user,password):
-    theVerdict = False
+    inIt = False
     #theReason=""
     passHash = sha1(password).hexdigest()
     if (user in usrpwd.keys()):
         if (passHash == usrpwd[user]):
-            theVerdict = True
-     #   else:
-      #      theReason = "Incorrect password entered."
-    else:
-        theReason = False
-    return theVerdict
+            inIt = True
+            #   else:
+            #      theReason = "Incorrect password entered."
+  #  else:
+   #     theReason = False
+    return inIt
 
 def register(user,password):
     theError = ""
     passHash = sha1(password).hexdigest()
-    if (user in userInfo.keys()):
-        print "route1"
+    if (user in usrpwd.keys()):
         theError = "This username is already registered."
     else:
-        print "route2"
         if ("," in user):
             theError = "Username has invalid character (a comma)."
         else:
-            with open('data/userPass.csv','a') as csv:
+            with open('data/userCsv.csv','a') as csv:
                 csv.write(user + "," + passHash + "\n")
                 theError = "Your account was successfully created!"
-                userInfo[user] = passHash
+                usrpwd[user] = passHash
     return theError
