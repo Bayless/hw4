@@ -11,7 +11,7 @@ def makeCsv():
         csv = csv.split("\n")
         for row in csv:
             row = row.split(",")
-            usrpwd[row[0]] = row[1]
+            usrpwd[row[0]] = row[1]#1st col is user 2nd is hashed pwd
     else:
         csv = csv.split(",")
         usrpwd[csv[0]] = csv[1]
@@ -19,7 +19,7 @@ def makeCsv():
 def authenticate(user,password):
     inIt = False
     #theReason=""
-    passHash = sha1(password).hexdigest()
+    passHash = sha1(password).hexdigest()#hash it
     if (user in usrpwd.keys()):
         if (passHash == usrpwd[user]):
             inIt = True
@@ -31,7 +31,7 @@ def authenticate(user,password):
 
 def register(user,password):
     theError = ""
-    passHash = sha1(password).hexdigest()
+    passHash = sha1(password).hexdigest()#hash it
     if (user in usrpwd.keys()):
         theError = "This username is already registered."
     else:
@@ -39,7 +39,7 @@ def register(user,password):
             theError = "Username has invalid character (a comma)."
         else:
             with open('data/userCsv.csv','a') as csv:
-                csv.write(user + "," + passHash + "\n")
+                csv.write(user + "," + passHash + "\n")#add row in csv
                 theError = "Your account was successfully created!"
-                usrpwd[user] = passHash
+                usrpwd[user] = passHash#add entry in dict
     return theError
