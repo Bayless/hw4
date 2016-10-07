@@ -18,15 +18,10 @@ def makeCsv():
 
 def authenticate(user,password):
     inIt = False
-    #theReason=""
     passHash = sha1(password).hexdigest()#hash it
     if (user in usrpwd.keys()):
         if (passHash == usrpwd[user]):
             inIt = True
-            #   else:
-            #      theReason = "Incorrect password entered."
-  #  else:
-   #     theReason = False
     return inIt
 
 def register(user,password):
